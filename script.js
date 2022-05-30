@@ -4,6 +4,9 @@ function createNewTag(tag, element, value) {
   return createTag;
 }
 
-function addNewTag()
-// Requisitos 1, 2 e 3 em HTML
+// Requisitos 1, 2 e 3 em HTML;
 // Requisito 4:
+const container = document.getElementById('container');
+
+container.appendChild(createNewTag('ol', 'id', 'lista-tarefas'));
+
