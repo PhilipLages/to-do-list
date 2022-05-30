@@ -14,11 +14,14 @@ listButton.innerText = 'Adicionar';
 
 container.appendChild(createNewTag('ol', 'id', 'lista-tarefas'));
 const toDoList = document.getElementById('lista-tarefas');
-
 const input = document.getElementById('texto-tarefa');
+const listItems = document.getElementsByClassName('item');
 
 function changeItemsBackgroudColor(e) {
-  e.target.style.backgroundColor = 'gray';
+  for (const item of listItems) {
+    item.style.backgroundColor = 'white';
+    e.target.style.backgroundColor = 'gray';
+  }
 }
 
 listButton.addEventListener('click', () => {
