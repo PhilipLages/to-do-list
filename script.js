@@ -26,41 +26,41 @@ function changeItemsBackgroudColor(e) {
 }
 
 // Requisito 9:
-function createCompletedEvent(e) {
-  for (const item of listItems) {
-    item.style.textDecoration = 'none';
-    e.target.style.textDecoration= 'line-through solid black';
-    item.classList.remove('completed');
-    e.target.classList.add('completed');
-  }
-};
-
-function removeCompleted(e) {
-  for (const item of listItems) { 
-    if (item.style.textDecoration === 'line-through solid black')  
-    e.target.style.textDecoration = 'none';
-  }
+function createCompletedEvent(e) {  
+  e.target.classList.toggle('completed');
 }
 
 listButton.addEventListener('click', () => {
   toDoList.appendChild(createNewTag('Li', 'class', 'item'));
-  toDoList.lastElementChild.innerText = input.value;
+  toDoList.lastElementChild.innerText = input.value;  
   toDoList.lastElementChild.addEventListener('click', changeItemsBackgroudColor);
-  toDoList.lastElementChild.addEventListener('dblclick', createCompletedEvent);
-  toDoList.lastElementChild.addEventListener('dblclick', removeCompleted);
+  toDoList.lastElementChild.addEventListener('dblclick', createCompletedEvent);  
 });
 
-listButton.addEventListener('click', () => {
-  console.log(input.value);
+listButton.addEventListener('click', () => {  
   input.value = '';
 });
 
 // Requisito 10:
 function createEraseBtn() {
   container.appendChild(createNewTag('button', 'id', 'apaga-tudo'));
-  container.lastElementChild.innerText = 'Apagar tarefas';
+  container.lastElementChild.innerText = 'Apagar tudo';
   container.lastElementChild.addEventListener('click', () => {
     toDoList.innerHTML = ' ';
   })
-};
+}
 createEraseBtn();
+
+// Requisito 11:
+function createEraseCompleted() {
+  let completed = document.querySelectorAll('.completed')
+  container.appendChild(createNewTag('button', 'id', 'remover-finalizados'));
+  container.lastElementChild.innerText = 'Apagar finalizadas';  
+  container.lastElementChild.addEventListener('click', () => {
+    for (let item = 0; item < completed.length; item += 1) {
+      firstIten = completed[0];
+      completed.remove(firstIten);
+    }    
+  });
+}
+createEraseCompleted();
