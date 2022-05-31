@@ -52,15 +52,16 @@ function createEraseBtn() {
 createEraseBtn();
 
 // Requisito 11:
-function createEraseCompleted() {
-  let completed = document.querySelectorAll('.completed')
+function removeCompleted() { 
+  const items = document.querySelectorAll('.completed'); 
+  for (let item of items) {
+    item.remove();
+  }
+}
+
+function createEraseCompleted() {  
   container.appendChild(createNewTag('button', 'id', 'remover-finalizados'));
   container.lastElementChild.innerText = 'Apagar finalizadas';  
-  container.lastElementChild.addEventListener('click', () => {
-    for (let item = 0; item < completed.length; item += 1) {
-      firstIten = completed[0];
-      completed.remove(firstIten);
-    }    
-  });
+  container.lastElementChild.addEventListener('click', removeCompleted);
 }
 createEraseCompleted();
