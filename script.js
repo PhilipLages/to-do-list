@@ -69,40 +69,20 @@ createEraseCompleted();
 // Requisito 12:
 
 function saveList() {  
-  const listItems = document.querySelectorAll('.item');
-  let tarefas = [];  
-  for (let item of listItems) {
-    tarefas.push(item.innerText);
-    localStorage.setItem('Tarefas', JSON.stringify(tarefas));
-  }  
-}
-
-function saveNewItems() {
-  const savedList= JSON.parse(localStorage.getItem('Tarefas'));
-  const listItems = document.querySelectorAll('.item');
-  for (let item of listItems) {
-    savedList.push(item.innerText);
-    localStorage.setItem('Tarefas', JSON.stringify(savedList));
-  }
+  localStorage.setItem('Tarefas', toDoList.innerHTML);
 }
 
 function firstRender() {
-  if (localStorage.getItem('Tarefas') === null) {
-    localStorage.setItem('Tarefas', JSON.stringify([]));
-  } else {
-    const listItems = JSON.parse(localStorage.getItem('Tarefas'));
-    for (let item = 0; item < listItems.length; item += 1) {
-      const listItem = toDoList.appendChild(createNewTag('Li', 'class', 'item'));
-      listItem.innerText = listItems[item];
-      toDoList.lastElementChild.addEventListener('click', changeItemsBackgroudColor);
-      toDoList.lastElementChild.addEventListener('dblclick', createCompletedEvent);
-    }
+  toDoList.innerHTML = localStorage.getItem('Tarefas');
+  for (let item of listItems) {
+    item.addEventListener('click', changeItemsBackgroudColor);
+    item.addEventListener('dblclick', createCompletedEvent);
   }
 }
 
-window.onload = function() {
+window.onload = function () {
   firstRender();
-}
+};
 
 function createSaveBtn() {
   container.appendChild(createNewTag('button', 'id', 'salvar-tarefas'));
