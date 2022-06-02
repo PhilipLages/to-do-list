@@ -90,3 +90,19 @@ function createSaveBtn() {
   container.lastElementChild.addEventListener('click', saveList);
 }
 createSaveBtn();
+
+// Requisito 14:
+function removeItem() {
+  for (let item of listItems) {
+    if(item.style.backgroundColor === 'gray') {
+      item.remove();
+    }
+  }
+}
+
+function createRemoveSelectedBtn() {
+  container.appendChild(createNewTag('button', 'id', 'remover-selecionado'));
+  container.lastElementChild.innerText =  'Apagar selecionada';
+  container.lastElementChild.addEventListener('click', removeItem);
+}
+createRemoveSelectedBtn();
