@@ -91,6 +91,41 @@ function createSaveBtn() {
 }
 createSaveBtn();
 
+// Requisito 13:
+function createUpBtn() {
+  container.appendChild(createNewTag('button', 'id', 'mover-cima'));
+  const UpBtn = document.getElementById('mover-cima');
+  UpBtn.innerText = 'Cima';
+  UpBtn.addEventListener('click', function() {
+    let goUp;
+    for (let up of listItems) {            
+      if (up.style.backgroundColor === 'gray') {
+        goUp = up;
+      }
+    }
+    if (goUp && goUp.previousElementSibling)
+    toDoList.insertBefore(goUp, goUp.previousElementSibling);
+  });
+}
+createUpBtn();
+
+function createDownBtn() {
+  container.appendChild(createNewTag('button', 'id', 'mover-baixo'));
+  const UpBtn = document.getElementById('mover-baixo');
+  UpBtn.innerText = 'Baixo';
+  UpBtn.addEventListener('click', function() {
+    let goDown;
+    for (let down of listItems) {      
+      if (down.style.backgroundColor === 'gray') {
+        goDown = down;              
+      }
+    }
+    if (goDown && goDown.nextElementSibling)
+    toDoList.insertBefore(goDown.nextElementSibling, goDown);
+  });
+}
+createDownBtn();
+
 // Requisito 14:
 function removeItem() {
   for (let item of listItems) {
