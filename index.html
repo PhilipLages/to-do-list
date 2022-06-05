@@ -4,19 +4,39 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
   <link rel="stylesheet" href="style.css">
   <title>To Do List  Project</title>
 </head>
 <body>
-  <header>
-    <h1>Minha Lista de Tarefas</h1> 
-    <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>   
-  </header>
-  <main>
-    <section id="container">
-      <input type="text" name="texto-tarefa" id="texto-tarefa" placeholder="Escreva aqui sua tarefa">
-    </section>
-  </main>
+  <section class="container">
+    <header>
+      <h1 class="h1 display-3">Minha Lista de Tarefas</h1> 
+      <p class="lead" id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
+      <hr>  
+    </header>
+    <main>
+      <section>
+        <section id="list-input">
+          <input class="form-control" type="text" name="texto-tarefa" id="texto-tarefa" placeholder="Escreva sua tarefa aqui">
+          <button class="btn btn-primary" id="criar-tarefa">Adicionar tarefa</button>
+        </section>
+        <section class="list">
+          <ol class="list-group" id="lista-tarefas"></ol>      
+        </section>
+        <section class="buttons">
+          <button class="btn btn-primary" id="mover-cima"><i class="fa-solid fa-arrow-up"></i></button>
+          <button class="btn btn-primary" id="mover-baixo"><i class="fa-solid fa-arrow-down"></i></button>
+          <button class="btn btn-success" id="salvar-tarefas"><i class="fa-solid fa-floppy-disk"></i> Salvar</button>
+          <button class="btn btn-info" id="remover-finalizados"><i class="fa-solid fa-list-check"></i> Remover completas</button>
+          <button class="btn btn-warning" id="remover-selecionado"><i class="fa-solid fa-trash"></i> Remover selecionadas</button>
+          <button class="btn btn-danger" id="apaga-tudo"><i class="fa-solid fa-ban"></i> Remover todas</button>
+        </section>
+      </section>    
+    </main>
+  </section>
+  <script src="https://kit.fontawesome.com/b561049033.js" crossorigin="anonymous"></script>
   <script src="./script.js"></script>
 </body>
 </html>

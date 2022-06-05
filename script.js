@@ -7,12 +7,7 @@ function createNewTag(tag, element, value) {
 // Requisitos 1, 2 e 3 em HTML;
 // Requisitos 4, 5, 6 e 7:
 const container = document.getElementById('container');
-
-container.appendChild(createNewTag('button', 'id', 'criar-tarefa'));
 const listButton = document.getElementById('criar-tarefa');
-listButton.innerText = 'Adicionar';
-
-container.appendChild(createNewTag('ol', 'id', 'lista-tarefas'));
 const toDoList = document.getElementById('lista-tarefas');
 const input = document.getElementById('texto-tarefa');
 const listItems = document.getElementsByClassName('item');
@@ -43,9 +38,8 @@ listButton.addEventListener('click', () => {
 
 // Requisito 10:
 function createEraseBtn() {
-  container.appendChild(createNewTag('button', 'id', 'apaga-tudo'));
-  container.lastElementChild.innerText = 'Apagar tudo';
-  container.lastElementChild.addEventListener('click', () => {
+  const removeAllBtn = document.getElementById('apaga-tudo');
+  removeAllBtn.addEventListener('click', () => {
     toDoList.innerHTML = ' ';
   });
 }
@@ -60,9 +54,8 @@ function removeCompleted() {
 }
 
 function createEraseCompleted() {
-  container.appendChild(createNewTag('button', 'id', 'remover-finalizados'));
-  container.lastElementChild.innerText = 'Apagar finalizadas';
-  container.lastElementChild.addEventListener('click', removeCompleted);
+  const removeFinishedBtn = document.getElementById('remover-finalizados');
+  removeFinishedBtn.addEventListener('click', removeCompleted);
 }
 createEraseCompleted();
 
@@ -85,17 +78,14 @@ window.onload = function () {
 };
 
 function createSaveBtn() {
-  container.appendChild(createNewTag('button', 'id', 'salvar-tarefas'));
-  container.lastElementChild.innerText = 'Salvar lista';
-  container.lastElementChild.addEventListener('click', saveList);
+  const saveBtn = document.getElementById('salvar-tarefas');
+  saveBtn.addEventListener('click', saveList);
 }
 createSaveBtn();
 
 // Requisito 13:
 function createUpBtn() {
-  container.appendChild(createNewTag('button', 'id', 'mover-cima'));
   const UpBtn = document.getElementById('mover-cima');
-  UpBtn.innerText = 'Cima';
   UpBtn.addEventListener('click', function() {
     let goUp;
     for (let up of listItems) {            
@@ -110,9 +100,7 @@ function createUpBtn() {
 createUpBtn();
 
 function createDownBtn() {
-  container.appendChild(createNewTag('button', 'id', 'mover-baixo'));
   const UpBtn = document.getElementById('mover-baixo');
-  UpBtn.innerText = 'Baixo';
   UpBtn.addEventListener('click', function() {
     let goDown;
     for (let down of listItems) {      
@@ -136,8 +124,7 @@ function removeItem() {
 }
 
 function createRemoveSelectedBtn() {
-  container.appendChild(createNewTag('button', 'id', 'remover-selecionado'));
-  container.lastElementChild.innerText =  'Apagar selecionada';
-  container.lastElementChild.addEventListener('click', removeItem);
+  const removeSelectedBtn = document.getElementById('remover-selecionado');
+  removeSelectedBtn.addEventListener('click', removeItem);
 }
 createRemoveSelectedBtn();
