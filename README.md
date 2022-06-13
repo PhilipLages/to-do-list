@@ -1,4 +1,4 @@
-# Welcome to my Trybewarts project
+# Welcome to my To Do List project
 <hr>
 
 ## Description:
